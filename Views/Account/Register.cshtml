@@ -1,0 +1,150 @@
+@{
+ViewData["Title"] = "Register";
+}
+
+<div class="container mt-5">
+    
+<div class="row justify-content-center">
+
+    <div class="col-md-6">
+
+        <div class="card shadow-lg border-0">
+
+            <div class="card-header bg-success text-white text-center">
+
+                <h1 class="display-5">
+                    🎬 Create Account
+                </h1>
+
+                <p class="mb-0">
+                    Join Movie Cinema Today
+                </p>
+
+            </div>
+
+            <div class="card-body p-5">
+
+                <form method="post">
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-bold">
+                            👤 Username
+                        </label>
+
+                        <input type="text"
+                               name="username"
+                               class="form-control form-control-lg"
+                               placeholder="Enter Username"
+                               required />
+
+                    </div>
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-bold">
+                            📧 Email
+                        </label>
+
+                        <input type="email"
+                               name="email"
+                               class="form-control form-control-lg"
+                               placeholder="Enter Email"
+                               required />
+
+                    </div>
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-bold">
+                            🔒 Password
+                        </label>
+
+                        <input type="password"
+                               name="password"
+                               class="form-control form-control-lg"
+                               placeholder="Enter Password"
+                               required />
+
+                    </div>
+
+                    <div class="mb-4">
+
+                        <label class="form-label fw-bold">
+                            🔑 Confirm Password
+                        </label>
+
+                        <input type="password"
+                               class="form-control form-control-lg"
+                               placeholder="Confirm Password"
+                               required />
+
+                    </div>
+
+                    <div class="d-grid">
+
+                        <button type="submit"
+                                class="btn btn-success btn-lg">
+
+                            🚀 Create Account
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div class="card-footer text-center">
+
+                Already have an account?
+
+                <a asp-controller="Account"
+                   asp-action="Login">
+                    Login Here
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="card mt-4 shadow">
+
+            <div class="card-body text-center">
+
+                <h3>
+                    🍿 Member Benefits
+                </h3>
+
+                <hr />
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        🎬<br />
+                        Movie Collection
+                    </div>
+
+                    <div class="col-md-4">
+                        🛒<br />
+                        Shopping Cart
+                    </div>
+
+                    <div class="col-md-4">
+                        📦<br />
+                        Order History
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>

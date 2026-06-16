@@ -1,0 +1,55 @@
+@model List<WebApplication1.Models.Order>
+
+@{
+    ViewData["Title"] = "My Orders";
+}
+
+<div class="container mt-5">
+    
+    
+    <div class="text-center mb-5">
+
+        <h1 class="display-3 fw-bold">
+            📦 My Orders
+        </h1>
+
+        <p class="lead text-muted">
+            View your purchase history.
+        </p>
+
+    </div>
+
+    <div class="row">
+
+        @foreach (var order in Model)
+        {
+            <div class="col-md-6 mb-4">
+
+                <div class="card shadow-lg">
+
+                    <div class="card-body">
+
+                        <h3>
+                            🎬 @order.MovieTitle
+                        </h3>
+
+                        <h4 class="text-success">
+                            NT$ @order.Price
+                        </h4>
+
+                        <p>
+                            Order Date:
+                            @order.OrderDate.ToString("yyyy/MM/dd")
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+
+</div>

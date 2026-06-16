@@ -1,0 +1,183 @@
+@model List<WebApplication1.Models.Movie>
+
+@{
+ViewData["Title"] = "Movies";
+}
+
+<div class="container">
+
+
+<div class="text-center mb-5">
+
+    <h1 class="display-3 fw-bold">
+        🎬 Movie Collection
+    </h1>
+
+    <p class="lead text-muted">
+        Discover and manage your favorite movies.
+    </p>
+
+</div>
+
+<!-- Search -->
+
+<form method="get" class="mb-5">
+
+    <div class="input-group input-group-lg">
+
+        <input type="text"
+               name="searchString"
+               class="form-control"
+               placeholder="🔍 Search movie by title..." />
+
+        <button type="submit"
+                class="btn btn-primary">
+            Search
+        </button>
+
+    </div>
+
+</form>
+
+<!-- Buttons -->
+
+<div class="text-center mb-5">
+
+    <a asp-action="Create"
+       class="btn btn-success btn-lg me-2">
+        ➕ Add New Movie
+    </a>
+
+    <a asp-controller="Cart"
+       asp-action="Index"
+       class="btn btn-dark btn-lg">
+        🛒 View Cart
+    </a>
+
+</div>
+
+<!-- Movie Cards -->
+
+<div class="row">
+
+    @foreach (var movie in Model)
+    {
+        <div class="col-lg-4 col-md-6 mb-4">
+
+            <div class="card shadow-lg border-0 h-100">
+
+                @{
+                    string imageUrl = movie.Title switch
+                    {
+                        "Avengers" =>
+                            "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200",
+
+                        "Spider-Man" =>
+                            "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=1200",
+
+                        _ =>
+                            "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1200"
+                    };
+                }
+
+                <img src="@imageUrl"
+                     class="card-img-top"
+                     style="height:280px; object-fit:cover;" />
+
+                <div class="card-body">
+
+                    <h3 class="fw-bold">
+                        @movie.Title
+                    </h3>
+
+                    <p class="text-muted">
+                        @movie.Description
+                    </p>
+
+                    <h4 class="text-success fw-bold">
+                        💰 NT$ @movie.Price
+                    </h4>
+
+                </div>
+
+                <div class="card-footer bg-white text-center">
+
+                    <a asp-action="Details"
+                       asp-route-id="@movie.Id"
+                       class="btn btn-primary btn-sm">
+                        Details
+                    </a>
+
+                    <a asp-action="Edit"
+                       asp-route-id="@movie.Id"
+                       class="btn btn-warning btn-sm">
+                        Edit
+                    </a>
+
+                    <a asp-action="Delete"
+                       asp-route-id="@movie.Id"
+                       class="btn btn-danger btn-sm">
+                        Delete
+                    </a>
+
+                    <a asp-controller="Cart"
+                       asp-action="Add"
+                       asp-route-movieId="@movie.Id"
+                       asp-route-title="@movie.Title"
+                       asp-route-price="@movie.Price"
+                       class="btn btn-success btn-sm">
+                        🛒 Cart
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    }
+
+</div>
+
+<!-- Statistics -->
+
+<div class="card shadow mt-5">
+
+    <div class="card-body text-center">
+
+        <h3>
+            📊 Movie Statistics
+        </h3>
+
+        <hr />
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <h2 class="text-primary">
+                    @Model.Count
+                </h2>
+                <p>Total Movies</p>
+            </div>
+
+            <div class="col-md-4">
+                <h2 class="text-success">
+                    NT$ @Model.Sum(x => x.Price)
+                </h2>
+                <p>Total Value</p>
+            </div>
+
+            <div class="col-md-4">
+                <h2 class="text-danger">
+                    NT$ @(Model.Any() ? Model.Max(x => x.Price) : 0)
+                </h2>
+                <p>Highest Price</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>

@@ -1,0 +1,30 @@
+@model WebApplication1.Models.Movie
+
+<h1>Edit Movie</h1>
+
+<form asp-action="Edit" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label>Title</label>
+        <input asp-for="Title" />
+    </div>
+
+    <div>
+        <label>Description</label>
+        <input asp-for="Description" />
+    </div>
+
+    <div>
+        <label>Price</label>
+        <input asp-for="Price" />
+    </div>
+
+    <br />
+
+    <button type="submit">
+        Save
+    </button>
+
+</form>

@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "Order Success";
+}
+
+<div class="container mt-5">
+
+    
+    <div class="card shadow-lg border-0 text-center">
+
+        <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=1200"
+             class="card-img-top"
+             style="height:400px; object-fit:cover;" />
+
+        <div class="card-body p-5">
+
+            <h1 class="display-1 text-success">
+                🎉
+            </h1>
+
+            <h1 class="display-4 fw-bold">
+                Order Successful
+            </h1>
+
+            <p class="lead">
+                Thank you for purchasing with Movie Cinema.
+            </p>
+
+            <p>
+                Enjoy your movie experience!
+            </p>
+
+            <a asp-controller="Home"
+               asp-action="Index"
+               class="btn btn-primary btn-lg">
+                🏠 Back To Home
+            </a>
+
+            <a asp-controller="Movies"
+               asp-action="Index"
+               class="btn btn-success btn-lg">
+                🎬 Browse Movies
+            </a>
+
+        </div>
+
+    </div>
+    
+
+</div>

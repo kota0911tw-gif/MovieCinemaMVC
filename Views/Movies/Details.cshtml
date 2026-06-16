@@ -1,0 +1,79 @@
+@model WebApplication1.Models.Movie
+
+@{
+    ViewData["Title"] = "Movie Details";
+
+    string imageUrl = Model.Title switch
+    {
+        "Avengers" => "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200",
+        "Spider-Man" => "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=1200",
+        _ => "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1200"
+    };
+}
+
+<div class="container mt-5">
+
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <img src="@imageUrl"
+                 class="img-fluid rounded shadow-lg"
+                 style="height:500px; width:100%; object-fit:cover;" />
+
+        </div>
+
+        <div class="col-md-6">
+
+            <span class="badge bg-danger fs-6 mb-3">
+                NOW SHOWING
+            </span>
+
+            <h1 class="display-3 fw-bold">
+                🎬 @Model.Title
+            </h1>
+
+            <hr />
+
+            <h4 class="mt-4">
+                Story
+            </h4>
+
+            <p class="lead">
+                @Model.Description
+            </p>
+
+            <h4 class="mt-4">
+                Ticket Price
+            </h4>
+
+            <p class="display-6 text-success fw-bold">
+                NT$ @Model.Price
+            </p>
+
+            <div class="mt-5">
+
+                <a asp-action="Index"
+                   class="btn btn-secondary btn-lg">
+                    ← Back
+                </a>
+
+                <a asp-action="Edit"
+                   asp-route-id="@Model.Id"
+                   class="btn btn-warning btn-lg">
+                    ✏ Edit
+                </a>
+
+                <a asp-action="Delete"
+                   asp-route-id="@Model.Id"
+                   class="btn btn-danger btn-lg">
+                    🗑 Delete
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

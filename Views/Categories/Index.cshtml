@@ -1,0 +1,77 @@
+@model List<WebApplication1.Models.Category>
+
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<h1 class="display-4 text-center mb-4">
+    📂 Movie Categories
+</h1>
+
+<div class="text-center mb-4">
+    <a asp-action="Create"
+       class="btn btn-success btn-lg">
+        ➕ Create New Category
+    </a>
+</div>
+
+<div class="row">
+
+    @foreach (var category in Model)
+    {
+        string icon = category.Name switch
+        {
+            "Action" => "🎭",
+            "Comedy" => "😂",
+            "Animation" => "🎨",
+            _ => "🎬"
+        };
+
+        string description = category.Name switch
+        {
+            "Action" => "Exciting action movies full of adventure.",
+            "Comedy" => "Funny movies to make everyone laugh.",
+            "Animation" => "Creative animated stories and characters.",
+            _ => "Movie category"
+        };
+
+        <div class="col-md-4 mb-4">
+
+            <div class="card shadow-lg h-100">
+
+                <div class="card-body text-center">
+
+                    <h1>@icon</h1>
+
+                    <h3 class="card-title">
+                        @category.Name
+                    </h3>
+
+                    <p class="card-text">
+                        @description
+                    </p>
+
+                </div>
+
+                <div class="card-footer text-center">
+
+                    <a asp-action="Edit"
+                       asp-route-id="@category.Id"
+                       class="btn btn-warning btn-sm">
+                        Edit
+                    </a>
+
+                    <a asp-action="Delete"
+                       asp-route-id="@category.Id"
+                       class="btn btn-danger btn-sm">
+                        Delete
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    }
+
+</div>

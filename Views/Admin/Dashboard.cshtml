@@ -1,0 +1,115 @@
+@{
+ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container mt-5">
+
+
+<div class="text-center mb-5">
+
+    <h1 class="display-2 fw-bold">
+        🎬 Movie Cinema Dashboard
+    </h1>
+
+    <p class="lead text-muted">
+        Administration & Business Overview
+    </p>
+
+</div>
+
+<div class="row mb-5">
+
+    <div class="col-md-4">
+
+        <div class="card shadow-lg border-0 text-center h-100">
+
+            <div class="card-body">
+
+                <h1 class="display-1">
+                    🎬
+                </h1>
+
+                <h2 class="fw-bold text-primary">
+                    @ViewBag.MovieCount
+                </h2>
+
+                <h5>Total Movies</h5>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card shadow-lg border-0 text-center h-100">
+
+            <div class="card-body">
+
+                <h1 class="display-1">
+                    📂
+                </h1>
+
+                <h2 class="fw-bold text-success">
+                    @ViewBag.CategoryCount
+                </h2>
+
+                <h5>Total Categories</h5>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card shadow-lg border-0 text-center h-100">
+
+            <div class="card-body">
+
+                <h1 class="display-1">
+                    📦
+                </h1>
+
+                <h2 class="fw-bold text-danger">
+                    @ViewBag.OrderCount
+                </h2>
+
+                <h5>Total Orders</h5>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card shadow-lg border-0">
+
+    <div class="card-body text-center">
+
+        <h2>
+            📈 System Summary
+        </h2>
+
+        <hr />
+
+        <p class="lead">
+            This dashboard provides an overview of the
+            Movie Cinema Management System.
+        </p>
+
+        <p>
+            Administrators can monitor movies,
+            categories, orders and user activities.
+        </p>
+
+    </div>
+
+</div>
+
+
+</div>

@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<div class="container mt-5">
+    
+    <div class="text-center mb-5">
+
+        <h1 class="display-2 fw-bold">
+            💳 Checkout
+        </h1>
+
+        <p class="lead text-muted">
+            Complete your movie ticket purchase.
+        </p>
+
+    </div>
+
+    <div class="card shadow-lg border-0">
+
+        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200"
+             class="card-img-top"
+             style="height:350px; object-fit:cover;" />
+
+        <div class="card-body text-center p-5">
+
+            <h2>
+                Ready For Movie Night?
+            </h2>
+
+            <p class="lead">
+                Your selected movies are waiting.
+            </p>
+
+            <p>
+                Click below to confirm your order.
+            </p>
+
+            <a asp-action="Success"
+               class="btn btn-success btn-lg">
+                🎟 Complete Order
+            </a>
+
+        </div>
+
+    </div>
+    
+
+</div>
